@@ -21,3 +21,24 @@ class ImageReader extends Reader {
   type In = File
   def read(file: File) = ImageIO.read(file)
 }
+
+abstract class Card {
+     type UserType <: BaseUser
+     def verify(u: UserType): Boolean
+  
+   }
+
+
+class SecurityCard extends Card {
+     type UserType = Admin
+     def verify(u: Admin) = true
+   }
+
+ val v1 = new SecurityCard().verify(new Admin("George", "high"))
+
+ class GiftCard extends Card {
+     type UserType = Customer
+     def verify(u: Customer) = true
+   }
+
+val v2 = new GiftCard().verify(new Customer("Fred"))
