@@ -16,6 +16,6 @@ type UserInfo = Tuple2[Int, String]
 val u: UserInfo = new UserInfo(123, "George")
 
 type T3[A, B, C] = Tuple3[A, B, C]
-
 val things = new T3(1, 'a', true)
+
 type Mappy[A,B] = collection.mutable.HashMap[A,B]
